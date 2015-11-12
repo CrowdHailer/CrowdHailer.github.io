@@ -7,9 +7,10 @@ tags:
 - ruby on rails
 - clojure
 - haml
-tumblr_url: http://crowdhailer.tumblr.com/post/80766441344/makers-acadamy-wandering-in-the-wild
 ---
-[Rollup.js](http://rollupjs.org) is a great way to add structure to a large client-side code base.
+**[Rollup.js](http://rollupjs.org) is a great way to add structure to a large client-side code base.**
+
+![Rollup.js logo](/assets/rollup-js-logo.svg)
 
 You might not be wanting to tackle all of EcmaScript(ES6), yet still want to separate your JavaScript code into modules.
 Previously the best way to do this was Browserify with common.js modules.
@@ -27,7 +28,7 @@ Want to jump straight to the code?
 
 *I will assume that you already have node and npm installed, need help see [Installing Node.js and npm](https://docs.npmjs.com/getting-started/installing-node).*
 
-### Setting up your node project
+### Setting up a node project
 
 We first need to create a `package.json` file to identify our project as a node project.
 This can be done by hand or by executing `npm init`, which walks through setup.
