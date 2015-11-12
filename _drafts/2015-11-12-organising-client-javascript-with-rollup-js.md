@@ -256,7 +256,7 @@ $ ./node_modules/.bin/rollup \
 
 We pass the format and name options so that our final bundle is available in the global namespace and can be used by other js code.
 
-The final step is to add index.js to `.gitignore`.
+Again to keep our version control neat we add index.js to `.gitignore`.
 
 ### Conclusion
 
