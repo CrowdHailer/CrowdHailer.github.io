@@ -7,7 +7,9 @@ tags:
 - ruby on rails
 - clojure
 - haml
+share-image: http:insights.workshop14.io/assets/rollup-js-logo.svg
 ---
+
 **[Rollup.js](http://rollupjs.org) is a great way to add structure to a large client-side code base.**
 
 ![Rollup.js logo](/assets/rollup-js-logo.svg)
@@ -38,14 +40,12 @@ Next is to fetch the development dependencies we will use.
 Fetch all the dependencies by executing the following.
 
 {% highlight sh %}
-```sh
 $ npm install --save-dev \
     rollup \
     jasmine \
     karma \
     karma-jasmine \
     karma-firefox-launcher
-```
 {% endhighlight %}
 
 At this point make sure that you have added `node_modules` to your `.gitignore` file.
@@ -57,7 +57,6 @@ The Karma test runner also comes with a handy project initializer which will cre
 Run the karma initializer with the following options.
 
 {% highlight sh %}
-```sh
 $  ./node_modules/.bin/karma init
 
 Which testing framework do you want to use ?
@@ -93,7 +92,6 @@ Press tab to list possible options.
 
 
 Config file generated at "/home/peter/Projects/Calculator/karma.conf.js".
-```
 {% endhighlight %}
 
 #### Note
@@ -108,7 +106,6 @@ Let's create a single test to check out Karma setup.
 We will create a main test file and add an example test.
 
 {% highlight js %}
-```js
 // test/main.js
 
 describe("A suite", function() {
@@ -116,24 +113,19 @@ describe("A suite", function() {
     expect(true).toBe(true);
   });
 });
-```
 {% endhighlight %}
 
 To bundle this file use Rollup with its default settings and store the output.
 *At this point the output will be unchanged, this is because we are yet to import any modules*
 
 {% highlight sh %}
-```sh
 $ ./node_modules/.bin/rollup test/main.js > test/bundle.js
-```
 {% endhighlight %}
 
 Now our bundle is available we can run the test.
 
 {% highlight sh %}
-```sh
 $ ./node_modules/.bin/karma start --singleRun
-```
 {% endhighlight %}
 
 This will show one passing test.
@@ -147,7 +139,6 @@ We can make life much easier by declaring them as npm scripts.
 First one change is needed in `karma.conf.js`, we will set singleRun configuration to be true.
 
 {% highlight js %}
-```js
 // karma.conf.js
 
 module.exports = function(config) {
@@ -157,7 +148,6 @@ module.exports = function(config) {
     singleRun: true,
   });
 };
-```
 {% endhighlight %}
 
 A lot of functionality can end up in npm scripts and it is easy to write magical single line scripts that no-one understands.
@@ -165,7 +155,6 @@ My advice is to write small contained scripts for bundling and running the tests
 Add these scripts into `package.json`.
 
 {% highlight json %}
-```json
 // package.json
 {
   "scripts": {
@@ -174,15 +163,12 @@ Add these scripts into `package.json`.
     "test:run": "karma start"
   },
 }
-```
 {% endhighlight %}
 
 To run the project tests we can just execute the npm test script.
 
 {% highlight sh %}
-```sh
 $ npm -s test
-```
 {% endhighlight %}
 
 This single simple test command follows npm conventions and is easy to remember.
@@ -196,7 +182,6 @@ The first feature a calculator should have is the ability to add two numbers.
 Let's adjust the test file so that it imports the calculator and add a meaningful test.
 
 {% highlight js %}
-```js
 // test/main.js
 
 // Import all exported functions from the calculator source file
@@ -208,7 +193,6 @@ describe("A Calculator", function() {
     expect(calculator.add(1, 2)).toEqual(3);
   });
 });
-```
 {% endhighlight %}
 
 The tests should now be failing, there is no code after all.
@@ -216,7 +200,6 @@ There are several features a good calculator might need.
 To keep features separate the calculator module will import modules to gain its utility.
 
 {% highlight js %}
-```js
 // src/calculator.js
 
 // Import add from the `calculator/add.js` file
@@ -224,16 +207,13 @@ import add from "./calculator/add";
 
 // Export add as one of the exports for the calculator module
 export { add };
-```
 {% endhighlight %}
 
 {% highlight js %}
-```js
 // src/calculator/add.js
 
 // export the function add as the default for this module
 export default function add(a, b) { return a + b; }
-```
 {% endhighlight %}
 
 With the tests passing again our impressive calculator is taking shape.
@@ -246,12 +226,10 @@ This is so it can be consumed in all the browsers that are not yet supporting ES
 Using Rollup.js again we bundle the distribution and save it in `index.js`.
 
 {% highlight sh %}
-```sh
 $ ./node_modules/.bin/rollup \
     --format iife \
     --name calculator \
     src/calculator.js >  index.js
-```
 {% endhighlight %}
 
 We pass the format and name options so that our final bundle is available in the global namespace and can be used by other js code.
