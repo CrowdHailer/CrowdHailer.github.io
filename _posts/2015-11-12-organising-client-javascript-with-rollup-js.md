@@ -7,7 +7,7 @@ tags:
 - ruby on rails
 - clojure
 - haml
-share-image: http:insights.workshop14.io/assets/rollup-js-logo.svg
+share-image: http://insights.workshop14.io/assets/rollup-js-logo.svg
 ---
 
 **[Rollup.js](http://rollupjs.org) is a great way to add structure to a large client-side code base.**
