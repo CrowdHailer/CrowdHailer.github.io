@@ -4,9 +4,9 @@ title: Organising client JavaScript with Rollup.js
 description: Project setup with ES6 module bundles and testing using Jasmine.js and Karma.js
 date: 2015-11-12 08:33:05
 tags:
-- ruby on rails
-- clojure
-- haml
+- JavaScript
+- Rollup.js
+- ES6
 share-image: http://insights.workshop14.io/assets/rollup-js-logo.svg
 ---
 
