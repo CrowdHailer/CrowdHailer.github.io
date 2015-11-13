@@ -1,28 +1,42 @@
 ---
 layout: post
-title: The next technology bubble
-description: Why the Internet everywhere is not the same as the Internet anywhere
+title: Dreamcoding my ideal language.
+description: Devising a language by wishful thinking
 date: 2015-11-8 06:56:05
 tags: Language
 author: Peter Saxton
 ---
 
-### The temptation
+Dreamcoding is the process of writing down the code you wish to see, without consideration of actually making it work.
+This post is what happened when I tried to apply that concept to a whole language.
+
 As a developer I am excited to build new things.
-The reality is that this is not always the best thing to do.
-Certainly when developing systems for production using existing tools is preferable.
-The lessons learned by many developers from many mistakes you don't want to make yourself are within these tools.
+A complete programming language I'm sure would be fun to build.
+The reality is that this would be [yak shaving]() of epic proportions, so I decided to dreamcode my language instead.
 
-A complete programming language is something that I know I do not need to build
+In my career I have worked with JavaScript, Ruby and Python, most recently I have been working with [Elixr]().
+Elixir is a great language, it has really stretched me to think about what it meant to have concurrency in a systems.
+<!-- I am interesting in combining the actor model with a type system and some Object Oriented ideas for handling side effects. -->
 
-### My Values
-These are the things that I currently value in a programming language.
-- As human readable as possible
-- Immutability by default
-- Side effects must contained and be possible to substitute or fake
-- Structural typing not classification typing
-What is less important
-- Functional programming vs Object Oriented Programming.
+I was first introduced to the concept of dreamcoding on the [nobackend.org]() site.
+https://www.youtube.com/watch?v=gULkBpl3e7c
+Conceptually it is very similar to 'coding by wishful thinking' that I have seen from Corey Haines.
+
+### What I want
+So to start with I need to be able to express what my dream language would look like.
+These are some of the things that I value in a programming language.
+
+I value code that is
+- clear and concise, not concise at the cost of clarity.
+- low on surprises, read have immutable data structures
+- is easy to isolate and has controlled side effects
+- quick to express domain concepts
+
+What I want to add quickly is that I don't think Functional programming vs Object Oriented Programming is a very interesting discussion.
+I see more similarities than differences.
+
+**DISCLAIMER: These features might be harmful.**
+I think all these features might be interesting but as I have not implemented them they could contain any problems
 
 #### Named Curried Functions
 When working with first class functions the ability to partially apply(curry) functions is very useful.
