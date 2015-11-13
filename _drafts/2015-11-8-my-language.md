@@ -138,51 +138,33 @@ ConsoleLogger.log(output: "Hello world!", io: NullIO)
 
 ```
 
-interfaces are global
-```
+#### Limited scope to interface functions
+If a value has a to_string method then that should always return a string.
+In so many cases there is only one sensible type that a function can return.
+For this reason I want to experiment with structural typing where each function name is only able to refer to a single function signature within a certain context.
+By default every function is private and they are only exposed through interfaces.
+
+```rb
+# Define a to_string interface that takes no arguments and returns a string
 interface Printable
-  def to_string
-  end
-end
-Printable is an interface on the world
-implement World.Printable
-
-# Could just be a module with some type specs
-Weird.interface Printable
-  to_string :: Any -> Num
-end
-in bounded contexts use Weird.Printable
-
-
-Weird.module Weird
-  def to_string({value: _value})
-    5
-  end
+  to_string :: Any -> String
 end
 
-Weird.Weird
-```
-
-```
-interface Enumerable
-  to_enum :: (Any) -> func/0
-
+# Trying to create another interface with the string function is an error
+interface Other
+  to_string :: Any -> String
 end
+# !! raise SignatureAlreadyDefined
 
-module Enumerator
-  next :: (Enumerator[Any]) -> {Any, Enumerator[Any]}
-end
-module Each
-  def map(enumerator, mapper)
-    do_map(enumerator: enumerator, mapper: mapper, result: [])
+module User
+  # Simply defining this function marks this module as printable
+  def to_string(user)
+    "user"
   end
 
-  defp do_map(enumerator, mapper, result)
-    {value, enumerator} = enumerator.next
-    result = [mapper(value) | result]
-    do_map(enumerator: new_enumerator, mapper: mapper, result: result)
-  mismatch {Enumerator, :no_match}
-    result
+  # By default this will be private as it is not in any defined interface.
+  def private_method
+    :some_constant
   end
 end
 ```
