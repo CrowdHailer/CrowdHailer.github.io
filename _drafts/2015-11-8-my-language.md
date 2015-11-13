@@ -168,3 +168,12 @@ module User
   end
 end
 ```
+
+### Conclusion
+These four features interest me, and I have not seen them any languages.
+In my free time I will continue my search for them.
+The next languages I want to investigate are Haskell, Scala and Typescript.
+
+I would not normally share something with so little application.
+However I am hoping that one of my excellent readers will be able to tell me where I can find these ideas.
+Failing that you can just tell me why these are bad ideas.
