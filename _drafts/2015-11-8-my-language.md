@@ -68,59 +68,54 @@ invert(4)
 # => 0.25
 ```
 
-#### Objects as Partially applied Modules
-I can't remember the source but I had immutable objects described as partially applied modules.
-Calling a module with some arguments will return an 'instance' of that module.
+#### Immutable objects
+Objects a useful abstraction in many cases to model a domain.
+The most useful objects are normally small [value objects]().
+Most immutable languages just pass data.
+They do not have a way to attach domain information to custom objects.
 
-```
+We can replace Classes inheritance to simply create objects as partially applied modules. It would also be possible to have modules applied to different degrees
+
+```rb
 module User
-  first_name
-  last_name
+  def first_name(first_name)
+    first_name
+  end
 
   def name(first_name, last_name)
     first_name ++ " " ++ last_name
   end
 end
 
-User.first_name(first_name: "Dave")
-# => "Dave"
+# Here we just ignore the unexpected argument passed in.
+User.first_name(first_name: "Stuart", last_name: "Little")
+# => "Stuart"
 
-User.name(first_name: "Dave", last_name: "Little")
-# => "Dave Little"
+User.name(first_name: "Stuart", last_name: "Little")
+# => "Stuart Little"
 
-dave = User(first_name: "Dave", last_name: "Little")
-# => {User, {first_name: "Dave", last_name: "Little"}}
-dave.name
-# => "Dave Little"
+stuart = User(first_name: "Stuart", last_name: "Little")
+stuart.name
+# => "Stuart Little"
 
 littles = User(last_name: "Little")
 # => {User, {last_name: "Little"}}
 
-littles.name(first_name: "Dave")
-# => "Dave Little"
+littles.name(first_name: "Stuart")
+# => "Stuart Little"
 ```
 
-#### Object instantiation
-Any behaviour that is needed in the instantiation process of an object can be done my a module function
-```
+If logic is needed to instantiate objects this can be added as a function on the module.
+For example if we wanted to create a user from a CSV row.
+
+```rb
 module User
-  def new(first_name, last_name)
-    # validate length of last name
+  def from_csv_archive(archive_string)
+    id, first_name, last_name = archive_string.split(' ')
     User(first_name: first_name, last_name: last_name)
   end
 end
 ```
-
-```
-module User
-  {first_name:Name, last_name:Name} -> instance of User
-  def new(first_name:Name, last_name:Name)
-    {User, {first_name: "Dave", last_name: "Little"}}
-  end
-end
-```
-
-
 
 #### Side Effects always Dependencies
 When defining functions the context does not include access to an IO module.
