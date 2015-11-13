@@ -118,28 +118,24 @@ end
 ```
 
 #### Side Effects always Dependencies
-When defining functions the context does not include access to an IO module.
-This IO module must be an explicit dependency.
-For testing purposes side effects can alway be contained.
+A well structured way of handling side effects is important when writing modular code.
+If we access IO through an `IO` module it should not be in the global namespace.
+But it should be possible to access it in a function argument list.
+Making IO always an explixit dependency might have advantages that the computer can assume functions without this declaration are pure.
 
-```
-module Greeter
-  def welcome(guest, logger)
-    logger.log("hello #{guest.name}")
-  end
-end
+```rb
+IO.puts("Hello world!") # !! Error as no module IO found here
 
 module ConsoleLogger
-  def log(string, io \\ IO)
-    io.puts(string)
+  def log(output, io \\ IO)
+    io.puts(output)
   end
 end
 
-ConsoleGreeter = Greeter(logger: ConsoleLogger)
-ConsoleGreeter.welcome({name: "test name"})
+ConsoleLogger.log("Hello world!")
+# Hello world!
+ConsoleLogger.log(output: "Hello world!", io: NullIO)
 
-ConsoleGreeter.welcome({colour: "brown"})
-# Should fail at compile time as the structure lacks a name method
 ```
 
 interfaces are global
