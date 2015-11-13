@@ -36,14 +36,18 @@ What I want to add quickly is that I don't think Functional programming vs Objec
 I see more similarities than differences.
 
 **DISCLAIMER: These features might be harmful.**
-I think all these features might be interesting but as I have not implemented them they could contain any problems
+I think all these features might be interesting but as I have not implemented them they could contain any problems.
 
-#### Named Curried Functions
-When working with first class functions the ability to partially apply(curry) functions is very useful.
-Named arguments are helpful in expressing the intent of code.
-To combine both might look something like the following.
+All examples are highlighted as Ruby thats just because they look more interesting than unhighlighted and Ruby gives alot of freedom.
 
-```
+#### 1. Named Curried Functions
+Currying is the partial application of functions.
+Sophisticated concepts can be expressed concisely with curried functions.
+Named arguments in functions clearly express the intent of code.
+If we combine both might if be possible to have expressive concise code.
+Such a combination might look like.
+
+```ruby
 def divide(numerator, denominator)
   numerator / denominator
 end
@@ -55,9 +59,13 @@ half = divide(denominator: 2)
 half(numerator: 6)
 # => 3
 
-# perhaps is the function has arity 1 then the name of the argument can be omitted
-half(6)
-# => 3
+invert = divide(numerator: 1)
+invert(denominator: 4)
+# => 0.25
+
+# Perhaps if the function has arity 1 then the name of the final argument can be omitted
+invert(4)
+# => 0.25
 ```
 
 #### Objects as Partially applied Modules
