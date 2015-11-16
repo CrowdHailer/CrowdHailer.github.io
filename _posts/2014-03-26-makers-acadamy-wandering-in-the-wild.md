@@ -1,14 +1,16 @@
 ---
 layout: post
-title: 'Makers Acadamy: wandering in the wild'
+title: 'Makers Acadamy: Wandering in the wild'
+description: Taking a moment to discover how much more there is to learn
 date: '2014-03-26T10:02:08+00:00'
 tags:
-- ruby on rails
 - clojure
 - haml
+- Makers Academy
+author: Peter Saxton
 tumblr_url: http://crowdhailer.tumblr.com/post/80766441344/makers-acadamy-wandering-in-the-wild
 ---
-<p><strong>This week is our last of teaching on the course.</strong> After this it is two weeks for a final project and then we are released into the wild. At the end of this week we were meant to know &lsquo;all of the things&rsquo;. I don&rsquo;t really feel like that is the case and didn&rsquo;t get the impression anyone else felt that way either. In fact I can&rsquo;t think of a time that I knew about quite as much that I didn&rsquo;t know</p>
+<p><strong>This week is our last of teaching on the course.</strong> After this it is two weeks for a final project and then we are released into the wild. At the end of this week we were meant to know &lsquo;all of the things&rsquo;. I don&rsquo;t really feel like that is the case and didn&rsquo;t get the impression anyone else felt that way either. In fact I can&rsquo;t think of a time that I knew about quite as much that I didn&rsquo;t know.</p>
 <p>We were working further on our photo sharing site this week. At the beginning I managed to focus moderately well on the task given. To finalise what we needed to know we were introduced to a large number of smaller topics.</p>
 <p><!-- more --></p>
 <ul><li>Coffeescript - I am more than happy writing JavaScript for the moment so will look at this more later.</li>
