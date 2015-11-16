@@ -1,14 +1,13 @@
 ---
 layout: post
 title: 'Makers Academy: Penultimate Week'
+description: Starting our final group project.
 date: '2014-03-31T07:37:00+01:00'
 tags:
-- ruby on rails
-- heroku
-- git
-- github
-- test driven development
-- rspec
+- Heroku
+- Git
+- TDD
+author: Peter Saxton
 tumblr_url: http://crowdhailer.tumblr.com/post/81270534766/makers-academy-penultimate-week
 ---
 <p><strong>This week is the first of two on our final project.</strong> After a somewhat drawn out process at the end of last week we had come together to form four project groups. I was in the largest and the six of us were going to build a platform to show off ourself as <a href="http://ma-student-directory.herokuapp.com/" title="Student Directory" target="_blank">Makers Academy Graduates</a>.</p>
