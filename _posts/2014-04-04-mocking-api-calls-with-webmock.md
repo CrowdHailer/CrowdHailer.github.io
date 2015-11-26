@@ -1,13 +1,14 @@
 ---
 layout: post
 title: Mocking API calls with Webmock
+description: "Automating mock http responses with Webmock"
 date: '2014-04-04T20:36:05+01:00'
 tags:
-- rspec
-- tdd
-- rails
-- cucumber
-- ruby
+- RSpec
+- TDD
+- Rails
+- Ruby
+author: Peter Saxton
 tumblr_url: http://crowdhailer.tumblr.com/post/81702185326/mocking-api-calls-with-webmock
 ---
 <p><strong>I have been working on calling and parsing data from the github API</strong>. In this case reading readme files from a users CV repository for a developer <a href="http://ma-student-directory.herokuapp.com/user/CrowdHailer" title="Full Stack People" target="_blank">showcase</a>. I want to test this code and this is how I stubbed out the API calls.</p>
