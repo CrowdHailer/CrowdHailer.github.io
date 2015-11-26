@@ -20,7 +20,7 @@ Conceptually it is very similar to ['coding by wishful thinking'](https://www.yo
 
 In my career I have worked with JavaScript, Ruby and Python, most recently I have been working with [Elixr](http://elixir-lang.org/).
 In my free-time I have experimented with yet more.
-These are all great languages but there are certain features that I think could be useful that I have not found in any language I have worked with.
+These are all great languages yet there are certain features that might be useful that I have not found in any language.
 These 'missing' features are what I present here.
 
 **DISCLAIMER: These features might be harmful.**
