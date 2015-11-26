@@ -2,7 +2,7 @@
 layout: post
 title: Dreamcoding my ideal language.
 description: Contriving four language features by wishful thinking.
-date: 2015-11-8 06:56:05
+date: 2015-11-26 16:39:05
 tags:
 - Functional Programming
 - Immutability
