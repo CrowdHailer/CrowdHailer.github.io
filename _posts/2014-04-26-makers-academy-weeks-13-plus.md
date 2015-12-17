@@ -1,12 +1,13 @@
 ---
 layout: post
 title: 'Makers Academy: weeks 13 plus'
-description: Experimenting with microservices in my last week at Makers Academy
+description: Reflecting on my journey and what I did next
 date: '2014-04-26T13:56:00+01:00'
 tags:
 - Makers Academy
 - Ruby
 - JavaScript
+author: Peter Saxton
 tumblr_url: http://crowdhailer.tumblr.com/post/83909015726/makers-academy-weeks-13-plus
 ---
 <p>My time at <a href="http://www.makersacademy.com/" title="Makers Academy" target="_blank">Makers Academy</a> has now been over for several weeks. I had hoped for a slight reduction in intensity but that is yet to happen.</p>
