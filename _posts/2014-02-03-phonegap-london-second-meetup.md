@@ -5,7 +5,7 @@ description: Learning about ionic and phonegap at the London meetup
 date: '2014-02-03T21:12:00+00:00'
 tags: phonegap JavaScript
 author: Peter Saxton
-share_image: https://31.media.tumblr.com/72e8e258eaf850af6302901829c162b1/tumblr_inline_n0futt1Dp41s4ay8u.jpg
+share-image: https://31.media.tumblr.com/72e8e258eaf850af6302901829c162b1/tumblr_inline_n0futt1Dp41s4ay8u.jpg
 tumblr_url: http://crowdhailer.tumblr.com/post/75513789506/phonegap-london-second-meetup
 ---
 <p><a href="http://phonegap.com/" title="PhoneGap" target="_blank"><img alt="image" src="https://31.media.tumblr.com/72e8e258eaf850af6302901829c162b1/tumblr_inline_n0futt1Dp41s4ay8u.jpg"/></a></p>

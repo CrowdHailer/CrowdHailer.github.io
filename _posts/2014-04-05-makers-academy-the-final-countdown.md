@@ -1,14 +1,14 @@
 ---
 layout: post
 title: 'Makers Academy: The final countdown'
+description: Experimenting with microservices in my last week at Makers Academy
 date: '2014-04-05T14:01:00+01:00'
 tags:
 - ruby
 - ruby on rails
 - microservices
-- icons
-- font awesome
-- foundation
+author: Peter Saxton
+share-image: https://31.media.tumblr.com/ccf31e3c05e6bcdafb1cdc138f8e05ec/tumblr_inline_n3ivpl0KGC1s4ay8u.jpg
 tumblr_url: http://crowdhailer.tumblr.com/post/81772555079/makers-academy-the-final-countdown
 ---
 <p><strong>We finally found ourself in our last week at Makers.</strong> This meant that we were half way through rushing to make our final projects presentable. However as we had to present them we had to take time out to prepare ourselves to demonstrate them. All the groups helped each out with feedback on our practises. This was actually the first time I had heard in detail what the others had managed to get up too. One project was a local advertising iPhone app. Next was a health tracker dashboard and the last a multimedia teaching aid to learn to code.</p>
