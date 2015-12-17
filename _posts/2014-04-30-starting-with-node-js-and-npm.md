@@ -1,15 +1,13 @@
 ---
 layout: post
 title: Starting with Node.js and Npm
+description: Reflecting on my journey and what I did next
 date: '2014-04-30T11:29:58+01:00'
 tags:
-- linux mint
-- node.js
-- express.js
-- javascript
-- npm
-- grunt.js
-- bower
+- Node
+- JavaScript
+author: Peter Saxton
+share-image: https://31.media.tumblr.com/6bd789ccae1134869390db07051720dd/tumblr_inline_n4u8h03SsT1s4ay8u.png
 tumblr_url: http://crowdhailer.tumblr.com/post/84311910118/starting-with-node-js-and-npm
 ---
 <p><strong>What is Node?</strong></p>
