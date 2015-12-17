@@ -1,11 +1,14 @@
 ---
 layout: post
 title: Zero to Heroku with Flask
+description: Experimenting with microservices in my last week at Makers Academy
 date: '2014-04-07T10:50:33+01:00'
 tags:
 - linux
 - heroku
 - python
+author: Peter Saxton
+share-image: https://31.media.tumblr.com/49fa738badbf3b0da52dbec0810d836e/tumblr_inline_n3nnbnAtWa1s4ay8u.png
 tumblr_url: http://crowdhailer.tumblr.com/post/81978869488/zero-to-heroku-with-flask
 ---
 <p><strong>This week I tried my hand at some Python for the first time in a long time.</strong> The goal of this was to simply create a &lsquo;Hello World!&rsquo; application on <a href="https://www.heroku.com/" title="Heroku" target="_blank">Heroku</a>.</p>
