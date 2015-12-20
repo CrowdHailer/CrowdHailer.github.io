@@ -89,17 +89,22 @@ Particularly valuable when many explanations muddle all the various MV* patterns
 ### Conclusion
 
 All of these projects have ideas I have been able to use going forward.
-Perhaps the most significant for me was having one store of state in the app.
-Herinrik Jorteg created an example where the router was just a view into the state.
-In my current project the entire app state is encoded in the url.
-Refreshing the page will not loose any information.
+Perhaps the most significant for me was having one store fot the state of an app.
+In my current project the single store has just been a wrapper around the history API.
+Encoding the entire app state in the URL has given the app the some nice properties
+First is refreshing the page will not loose any information.
+Second the back button neatly steps through the history of the application.
 
-So which do I recommend, all of them.
-They all have great documentation, learning about them is valuable even if you do not use them.
+So which of these three should you use.
+All of them, in the correct situation.
+They all have great documentation and learning them is valuable even if you do not use them.
 
 If my next project had lots collections, I would use Vue to create coherent components.
-But my design would be inspired by redux and reduce the number of stateful components.
-For a more interactive product, I would employ cycle.
+But my design would be inspired by Redux and reduce the number of stateful components.
+For a more interactive product, I would employ Cycle.
 The observable model would be very nice for handling rich input from the user.
 
-Well those are my three favourites at the moment I am sure you have others that you can suggest. In my next post I hope to talk more about what I have been working. on.
+Well those are my three favourites at the moment I am sure you have others that you can suggest.
+
+<!-- Put as an example in the links -->
+Herinrik Jorteg created an example where the router was just a view into the state.
