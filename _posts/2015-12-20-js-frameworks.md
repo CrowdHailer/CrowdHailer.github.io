@@ -11,11 +11,10 @@ author: Peter Saxton
 
 **Three modern JavaScript frameworks that are interesting and have something to teach you.**
 
-
-
-As we know keeping track with the latest JavaScript framework is exhausing.
-They come out much quicker than anyone can keep up with.
-Recently I have had sometime to explore some of the offerings and this selection are worth a second look.
+Keeping track of the latest JavaScript frameworks is exhausting.
+It is difficult to separate the genuinely interesting from the crowd.
+Recently I have had some time to explore the current offerings.
+This selection are my favourite and worth a second look.
 
 ### [Redux](http://redux.js.org/)
 
