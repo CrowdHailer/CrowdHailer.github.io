@@ -11,6 +11,8 @@ author: Peter Saxton
 
 **Three modern JavaScript frameworks that are interesting and have something to teach you.**
 
+
+
 As we know keeping track with the latest JavaScript framework is exhausing.
 They come out much quicker than anyone can keep up with.
 Recently I have had sometime to explore some of the offerings and this selection are worth a second look.
@@ -20,21 +22,22 @@ Recently I have had sometime to explore some of the offerings and this selection
 ##### Flux -> Reflux -> Redux
 
 ![Flux logo](http://img.stackshare.io/service/1275/flux.png)
-The flux architecture was labeled as such by Facebook.
-They coined the term to describe a recommended setup when using React.
+Flux was coined by Facebook to describe the recommended architecture to use with React.
 
-The key tenant is a unidirectional dataflow. Actions cause updates in a store(aka model).
+The key concept is that of a unidirectional dataflow.
+Actions cause updates in a store(aka model).
 The model generates a view and this finally updates the DOM.
 User interactions are mapped to actions to close the loop.
 
-Redux is one of the latest iterations on this idea.
-It proposes a single data store for all state in the application.
-This sounds a drastic limitation yet has some interesting payoffs.
-Redux offers a time-travelling debugger.
-Invaluable when debugging a process with many steps.
+Redux is a recent addition to the flux family tree.
+It develops on flux by confining all application state to a single store.
+This sounds a drastic limitation but creates some interesting payoffs.
+One of these benefits is that Redux offers a time-travelling debugger.
+This works by keeping a record of each version of the state and allowing a debugger to replay through this history.
+It is invaluable when debugging a process with many steps.
 
-To get a quick introduction watch the excellent series of explanetory videos available.
-
+To get a thorough introduction to Redux there is a series of explanatory videos.
+These run through all the basic concepts very quickly.
 
 ![Cycle logo](http://cycle.js.org/img/cyclejs_logo.svg)
 
@@ -42,18 +45,21 @@ To get a quick introduction watch the excellent series of explanetory videos ava
 
 ##### Haskell -> ReactiveX -> Cycle
 Cycle takes inspiration from functional technologies such as Haskell and ReactiveX.
-Don't be detered by these advanced concepts as there is a limited number and they are explained when needed.
+Don't be deterred by these advanced forebears.
+Only a limited number of concepts are used and they are explained when needed.
 
-Cycles design starts with the question, what if the user was a function.
-The result for this frame work is that all key components are reactive.
+Cycles design starts with a proposition, what if the user was a function.
+The result is a unidirectional data flow, in common with FLux.
+However all key components are reactive instead of proactive.
 Much of Cycle is built on observables, which are leveraged from RX.js.
 
 Modeling the system as an observable to a user is certainly unusual
-To me the observable pattern is useful when the object being observed is not aware or caring about the behavior of its observers.
-This is not the case for any real system where the user cares quite a lot about whether the program responds or not to its actions.
+To me the observable pattern is useful when the object being observed does not care about the behavior (or even existence) of any observers.
+This is not the case for any real system.
+The user cares quite a lot about whether the program responds or not to its actions.
 
 That said there are a few examples where this approach results in very elegant programs.
-The concept is well explained on the cycle website, have a read through and decide if your system makes sense as an observable.
+The concept is well explained on the Cycle website, have a read through and decide if your system makes sense as an observable.
 
 ![Vue logo](http://vuejs.org/images/logo.png)
 
@@ -62,24 +68,23 @@ The concept is well explained on the cycle website, have a read through and deci
 ##### Backbone -> MV* -> MVVM
 
 Vue uses the Model-View-ViewModel(MVVM) pattern.
-Focused on dealing with the View and ViewModel layer.
-It rides the line between library and framework quite expertly.
-A router is included yet leave the core business model for the user to implement.
+It is a focused toolset for dealing with the View and ViewModel layer.
+A few further core components of an app are included, such as a router.
+Apart from these the core business logic is completly in the hands of the developer.
 
-Vue will be more familiar to developers who have used MV* frameworks in the past.
-Vue is decended from existing MV* frameworks.
-This background will make it familiar to many developers, yet it moves forward in several areas.
-Widgets can be encapsulated in single `.vue` files
-These component files contain HTML CSS and JS.
-It has a template syntax that is concise and well reasoned about.
+Vue evolves the MVVM pattern forward in several respects.
+Complete widgets can be encapsulated in single `.vue` files
+These files contain HTML, CSS and JS.
+The databinding syntax that glues the View to ViewModel is concise and explicit.
+These changes create a powerful framework that will be familiar to developers who have used other MV* frameworks.
 
-
-I particularly like the way it does not interfere with implementing the core application.
-A few choices and the domain model will implement the flux architecture.
+Vue rides the line between library and framework quite expertly.
+I particularly like the way it does not interfere with implementing the core application logic.
+It is quite possible to implement a flux architecture within a Vue project.
 Important for your project to remain buzzword compliant.
 
-The documentation is excellent and it describes the MVVM pattern well.
-Particularly valuable when most explinations muddle all the MV* frameworks together.
+The documentation does a great job of describing the MVVM pattern.
+Particularly valuable when many explanations muddle all the various MV* patterns together.
 
 ### Conclusion
 
