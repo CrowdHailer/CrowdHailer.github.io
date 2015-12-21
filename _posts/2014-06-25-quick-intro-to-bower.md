@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Quick intro to Bower
+description: Packet management for the web with bower.
 date: '2014-06-25T08:30:00+01:00'
 tags:
-- bower
-- javascript
-- functional programming
+- Bower
+- JavaScript
 tumblr_url: http://crowdhailer.tumblr.com/post/89842223952/quick-intro-to-bower
 ---
 <blockquote>
