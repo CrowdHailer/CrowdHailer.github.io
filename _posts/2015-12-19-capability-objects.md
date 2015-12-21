@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Capability objects
-description: JS control
-date: 2015-11-26 16:39:05
+title: Taming side effects.
+description: Bringing predictability to JavaScript with Capability Objects
+date: 2015-12-19 16:39:05
 tags:
 - Functional Programming
 - Immutability
@@ -10,53 +10,54 @@ tags:
 author: Peter Saxton
 ---
 
-**Bring predictability to you code through the use of Capability Objects**
+**Introducing capability objects to eliminate side effects in JavaScript functions**
 
-Code that has side effects is often less predictable and therefore more difficult to test and reason about.
+Side effect free code is predictable, and therefore easier to test and reason about than code with side effects.
 Some functional languages go to great lengths to control side effects, such as Haskell with its use of the IO Monad.
+This post shows how we get the same advantages
 Capability objects provide a simple mechanism for controlling side effects in JavaScript.
 There use can improve the rationality, readability and reusability of program components.
 
-### What makes a function side effect free
+### When is a function side effect free?
 A function is isolated from side effects when:
 
-  1. The only result of it's execution is the return value.
-  2. The return value is always the same given the same arguments.
+  1. The only effect of it's execution is the return value (*side effect free*).
+  2. The return value is always the same given the same arguments (*pure*).
+  3. A function with both has referential transparency.
 
-*Point 1 alone makes a function side effect free.
-Point 2 alone defines a pure function.
-A function with both is said to be referentially transparent.*
-
-Like many things these are easiest to demonstrate with an example.
+It is easiest clarify these three with some examples.
 
 {% highlight js %}
-// Pure and side effect free
-function add(a, b){
-  return a + b;
-}
-
-// Impure but side effect free
+// Side effect free
 function flip(){
   return Math.random() >= 0.5 ? "heads" : "tails";
 }
 
-// Pure but has side effect
+// Pure
 function addAndLog(a, b){
   console.log("adding", a, b);
+  return a + b;
+}
+
+// Referentially transparent
+function add(a, b){
   return a + b;
 }
 {% endhighlight %}
 
 There are many ways a function can become coupled to the outside world.
-Including accessing global variables such as the window object, logging and throwing errors.
-It is important to remember that a program cannot be useful without eventually causing a side effect.
-The goal of a capability object is to control a function and to render it effectively isolated.
+Ways include accessing global variables such as the window object, logging and throwing errors.
+Finally any function that accepts a function as an argument(i.e. callback) will become polluted if that callback is impure or has side effects.
+
+A program cannot be useful without causing some side effect, it must at least display it's result.
+The goal of a capability object is to separate the logic of a function from any effects.
+This separation pushes code with side effects to the edges of our program and renders the core effectively isolated.
 
 ### Capability Objects and effectively isolated functions.
-A capability object is simply an argument to a function that may be impure or have side effects.
+A capability object is an object on which some of its methods may be impure or have side effects.
 An effectively isolated function is one that is pure when the capability object has only pure functionality and is side effect free when the capability object is side effect free.
 
-We can rewrite our examples above to be effectively isolated as follows
+We make our examples effectively isolated by rewritting them to take appropriate capability objects.
 
 {% highlight js %}
 function flip(randomiser){
@@ -65,6 +66,10 @@ function flip(randomiser){
 
 function addAndLog(a, b, logger){
   logger.log("adding", a, b);
+  return a + b;
+}
+
+function add(a, b){
   return a + b;
 }
 {% endhighlight %}
@@ -203,3 +208,4 @@ This is a pain but ultimatly a good thing because a function that needs acccess 
 Leaving debug comments in your codebase makes is a bit larger. Not really a problem and if it turns out to be a problem the way to remove these is with a build step.
 Set loglevel from query String, if loglevel not found use production logger.
 Allows me to access the logs on the production site.
+http://joeduffyblog.com/2015/11/10/objects-as-secure-capabilities/
