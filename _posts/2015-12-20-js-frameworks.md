@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Three JavaScript frameworks for 2016
-description: Opinions on a few of the more interesting JS projects.
+description: Review of some interesting JS projects.
 date: 2015-11-26 16:39:05
 tags:
 - JavaScript
@@ -107,3 +107,4 @@ Well those are my three favourites at the moment I am sure you have others that 
 
 <!-- Put as an example in the links -->
 Herinrik Jorteg created an example where the router was just a view into the state.
+link to old webcomponents frp post.
