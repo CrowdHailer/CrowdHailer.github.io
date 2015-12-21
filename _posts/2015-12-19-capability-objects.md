@@ -99,13 +99,15 @@ function Dispatcher(callbacks){
 }
 {% endhighlight %}
 
-The purpose of this object is to invoke each callback with an action in response to a call to dispatch an action.
-The dispatcher should throw a meaningful error if any callback is not a function.
-We require a log that the action was dispatched.
-Finally if there are no callbacks our log should be a warning as it is unlikely we ever want a dispatched action to have no effect.
+This dispatcher dispatches an action to each callback in a collection.
+Meaningful errors should be the result of any callback that is not a function.
+A log is required for each action that is dispatched.
+Finally if there are no callbacks our log should be a warning as we never want a dispatched action to have no effect.
 
-This code is full of side effects from throwing an error to writing log messages.
-We can make it effectivly isolated with the following changes.
+The naive implementation is tightly coupled to the world outside its scope.
+It creates side effects when throwing errors and writing log messages.
+
+To isolate the dispatcher we make the following changes.
 
 {% highlight js %}
 function Dispatcher(callbacks, logger){
@@ -115,11 +117,6 @@ function Dispatcher(callbacks, logger){
         callback(action);
       } else {
         var err = new TypeError("Callback is not a function");
-        logger.error(err);
-      }
-      try {
-        callback(action);
-      } catch(err) {
         logger.error(err);
       }
     });
@@ -133,8 +130,9 @@ function Dispatcher(callbacks, logger){
 }
 {% endhighlight %}
 
-We now pass in a logger as a dependency.
-Instead of throwing an error we now log that we have recorded an error to the logger.
+In this version there is not a single side effect.
+A logger is passed as a dependency, so it is within scope when we call methods on it.
+Instead of throwing errors the dispatcher now reports errors via the logger.
 
 ### Testing log messages
 When testing the dispatcher we do not want to pollute the console with log messages.
