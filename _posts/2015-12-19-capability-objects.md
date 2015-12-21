@@ -74,17 +74,49 @@ function add(a, b){
 }
 {% endhighlight %}
 
-This simple change has many benefits, but to show them off lets use a more sophisticated example.
-We have a simple dispatcher.
-It is initialized with an array of callback functions and a logger (the capability object).
-When dispatch is called with an action it needs to call each callback with the same action and log the action.
-If any callback throws an error it needs to capture this so that the other callbacks are still called.
-If there are no callbacks then we will log the action as a warning, we will assume that we should always have at least one listener.
+### Ok, but why?
+
+To show  off the advantages of pure and side effect free functionality we need a more sophisticated example.
+Lets start with a naive implementation of a dispatcher.
+
+{% highlight js %}
+function Dispatcher(callbacks){
+  this.dispatch = function(action){
+    callbacks.forEach(function(callback){
+      if (callback instanceof Function) {
+        callback(action);
+      } else {
+        throw new TypeError("Callback is not a function");
+      }
+    });
+
+    if (callbacks.length === 0) {
+      console.warn(action);
+    } else {
+      console.info(action);
+    }
+  }
+}
+{% endhighlight %}
+
+The purpose of this object is to invoke each callback with an action in response to a call to dispatch an action.
+The dispatcher should throw a meaningful error if any callback is not a function.
+We require a log that the action was dispatched.
+Finally if there are no callbacks our log should be a warning as it is unlikely we ever want a dispatched action to have no effect.
+
+This code is full of side effects from throwing an error to writing log messages.
+We can make it effectivly isolated with the following changes.
 
 {% highlight js %}
 function Dispatcher(callbacks, logger){
   this.dispatch = function(action){
     callbacks.forEach(function(callback){
+      if (callback instanceof Function) {
+        callback(action);
+      } else {
+        var err = new TypeError("Callback is not a function");
+        logger.error(err);
+      }
       try {
         callback(action);
       } catch(err) {
@@ -100,6 +132,9 @@ function Dispatcher(callbacks, logger){
   };
 }
 {% endhighlight %}
+
+We now pass in a logger as a dependency.
+Instead of throwing an error we now log that we have recorded an error to the logger.
 
 ### Testing log messages
 When testing the dispatcher we do not want to pollute the console with log messages.
