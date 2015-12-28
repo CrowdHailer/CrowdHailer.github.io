@@ -10,50 +10,62 @@ tags:
 author: Peter Saxton
 ---
 
-**tl:dr Object Oriented Programming(OOP) vs Functional Programming(FP) is a distraction.
-Both paradigms have there strength and can often be used together.**
-
-This post is not about community or job opportunities or tooling.
+This post is not about the Elixir community or job opportunities with Ruby.
 It is not really about Ruby vs Elixir at all.
 What I want to explain is why I am uncomfortable hitching my bandwaggon to the movement from OOP to FP.
 
-My background is in Ruby.
-It was the first language I used professionally and I have been working with it for several years now.
+### Background
+
+The first language I used professionally was Ruby.
+I have been working with it for several years.
 In that time I have looked at many ways to improve code quality.
-Most often I was the person maintaining the code I wrote so very quickly I wanted to be writing the best code possible.
-To this end I spent much of last year exploring [Domain Driven Design(DDD)](link).
- is a methodology for writing maintaining programs.
+One set off guidelines for improving code is [Domain Driven Design(DDD)]().
+This is a methodology for writing programs which reflect the domain of the problem they are trying to solve.
+DDD is applicable to FP or OOP but is far more often discussed against an OOP background.
 
-More recently I have been working with Elixir.
-Elixir is a proudly functional language that is build atop the Erlang virtual machine(beam).
+More recently I have been employed to write Elixir.
+Elixir is a [proudly functional language]() that is build atop the Erlang virtual machine(beam).
 It has some Ruby inspired syntax but few other similarities.
-Working with this new language was a thorough introduction to many of the ideas important to functional programming.
+Working with this new language was a thorough introduction to functional programming.
 
-Some of the more eye opening ideas were pattern matching, Immutability and pipelines. Even Monads
-As I explored them further though it became apparent that none of these were fundamentally opposed to Objects.
-In particular the ideas from DDD seamed to be above technical considerations like OOP v FP.
-DDD despite being agnostic to technology is firmly rooted in the OOP world.
+Elixir has some powerful concepts such as pattern matching, immutability and pipelines.
+These concepts are common across functional programming languages and rarer in OOP.
+Further exploration showed few of these concepts were fundamentally tied to FP.
 
-When I started with elixir one comment from Dave Thomas had stuck in my mind.
-It was this "I don't think in objects I think in processes".
-What was interesting was that DDD had an answer to this.
-Does your client(or any non technical stakeholder) think in processes or objects.
-As our programs purpose is to model a domain the answer to that question would give you which bits of your system should be functional or object based.
+### Which to choose
 
-When cast in this light it became clear that both views where useful.
-Ideas like event sourcing can blur the line further.
-There is always an object
+When starting with Elixir one comment from Dave Thomas stuck in my mind.
+He said "I don't think in objects I think in processes".
+I wondered which one I though in or even if there is a best way to think.
+
+Intrigingly DDD has a suggestion on whether it is better to think in objects or processes.
+Does the client(or any non technical stakeholder) think in processes or objects?
+The answer to that question is the answer to whether FP or OOP is a more suitable way to model the domain.
+
+Immutability can help make code predictable.
+Developing with Elixir demonstrates this well.
+However Ruby can have immutable objects.
+In the end it comes down to the domain to see which paradigm is more suitable.
+
+Thinking in processes can be helpful, but many of these processes will involve well defined domain objects.
 
 Browse the *Catalogue*
 View that *Item*
 Update your *Basket*
 checkout == create an *Order*
 
-So stop trying to pick a side and enjoy learning both.
+In my opinion neither paradigm is superior.
+And my advice is to stop trying to pick a side and enjoy learning both.
 
 ### Whats next for me
-Erlang has some superpowers when it comes to writing parallel, fault tolerant code, Elixir inherits these powers
-For anything with less rigourous requirements I will prefer Ruby.
-Elixir taught me many things that I can use in Ruby, an apprechiation for immutable data structures among them.
-However the fundamental factor is that Ruby's support for functional paradigms is better that Elixir's support for working with object.
-It is also clear that this will not change any time soon.
+Erlang has some superpowers when it comes to writing parallel, fault tolerant code, Elixir inherits these powers.
+If a system is meant to manage many demands concurrently then I would use Elixir.
+A web socket server is an example of such a system.
+For a program with less strenuous requirements I would likely choose Ruby.
+
+Learning Elixir taught me many concepts.
+Fundamentally my preference for Ruby is that I can use most of these concepts in Ruby.
+Ruby's support for functional concepts is better that working with objects in Elixir.
+
+Dave Thomas introducing Elixir
+Domain driven design the key values
