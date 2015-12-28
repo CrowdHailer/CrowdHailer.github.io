@@ -1,14 +1,12 @@
 ---
 layout: post
-title: 'Belfry, Publish and Subscribe '
+title: Publish Subscribe pattern in JavaScript
+description: Implementing a simple pub-sub object in JavaScript
 date: '2014-07-15T08:42:03+01:00'
 tags:
-- javascript
-- pubsub
-- Functional
-- functional programming
-- events
-- observer pattern
+- JavaScript
+- Functional Programming
+author: Peter Saxton
 tumblr_url: http://crowdhailer.tumblr.com/post/91830951758/belfry-publish-and-subscribe
 ---
 <p>An ever present consideration when making software is it&rsquo;s maintainability. A code&rsquo;s maintainability is tightly linked to its accessibility, how easily the next person looking at it can understand it. To make code understandable it must either have a familiar structure, be broken into manageable sensible chunks or perhaps both. There are several guiding principle is to achieve this. Reduce coupling and and increasing cohesion and the Single Responsibility principle are all about this goal. </p>
@@ -27,41 +25,43 @@ tumblr_url: http://crowdhailer.tumblr.com/post/91830951758/belfry-publish-and-su
 <p><strong>Implementation</strong></p>
 <p><em>Control object</em></p>
 <p>The <a href="http://addyosmani.com/resources/essentialjsdesignpatterns/book/#singletonpatternjavascript" title="design patterns" target="_blank">singleton pattern</a> is very useful for this as it is imperative that all calls to broadcast reach the same object. The following code creates a tower instance the first time it is called and in all subsequent calls returns the first created instance.</p>
-<blockquote>
-<div class="line" id="LC1"><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">global</span><span class="p">)</span> <span class="p">{</span></div>
-<div class="line" id="LC4">  <span class="kd">var</span> <span class="nx">instance</span><span class="p">;</span></div>
-<div class="line" id="LC5"></div>
-<div class="line" id="LC6">  <span class="kd">function</span> <span class="nx">init</span><span class="p">(){</span></div>
-<div class="line" id="LC10">    instance = // code goes here &hellip;</div>
-<div class="line" id="LC42">    <span class="k">return instance</span></div>
-<div class="line" id="LC48">  <span class="p">}</span></div>
-<div class="line" id="LC49"></div>
-<div class="line" id="LC50">  <span class="nx">global</span><span class="p">.</span><span class="nx">Belfry</span> <span class="o">=</span> <span class="p">{</span></div>
-<div class="line" id="LC51">    <span class="nx">getTower</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span></div>
-<div class="line" id="LC52">      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">instance</span><span class="p">)</span> <span class="p">{</span></div>
-<div class="line" id="LC53">        <span class="nx">instance</span> <span class="o">=</span> <span class="nx">init</span><span class="p">();</span></div>
-<div class="line" id="LC54">      <span class="p">}</span></div>
-<div class="line" id="LC55">      <span class="k">return</span> <span class="nx">instance</span><span class="p">;</span></div>
-<div class="line" id="LC56">    <span class="p">}</span></div>
-<div class="line" id="LC57">  <span class="p">};</span></div>
-<div class="line" id="LC58"><span class="p">}(</span><span class="k">this</span><span class="p">));</span></div>
-</blockquote>
+{% highlight js%}
+function(global){
+  var instance;
+  function init(){
+    // code goes here
+    return instance
+  }
+  global.Belfry = {
+    getTower: function(){
+      if (!instance) {
+        instance = init();
+      }
+      return instance;
+    }
+  };
+());
+{% endhighlight%}
 <p><em>Subscribing</em></p>
 <p>Each channel is an array on a channels object. When subscribing a function to a channel the function is added to the corresponding array. </p>
-<blockquote>
-<div class="line"><span class="kd">function</span> <span class="nx">subscribe</span><span class="p">(</span><span class="nx">topic, reaction</span><span class="p">){</span></div>
-<div class="line" id="LC12">    <span class="kd">var</span> <span class="nx">channel</span> <span class="o">=</span> <span class="nx">channels</span><span class="p">[</span><span class="nx">topic</span><span class="p">]</span> <span class="o">=</span> <span class="nx">channels</span><span class="p">[</span><span class="nx">topic</span><span class="p">]</span> <span class="o">||</span> []<span class="p">;</span></div>
-<div class="line" id="LC13">    <span class="nx">channel.push </span><span class="p"></span><span class="o">=</span> <span class="nx">reaction</span><span class="p">;</span></div>
-<div class="line" id="LC19"><span class="p">}</span></div>
-</blockquote>
+
+{% highlight js%}
+function subscribe(topic, reaction){
+  var channel = channels[topic] = channels[topic] || [];
+  channel.push(reaction);
+}
+{% endhighlight%}
+
 <p>Publishing</p>
 <p>When a broadcast is made each function in that channels array is called with the content that is to be added to the broadcast.</p>
-<blockquote>
-<div class="line" id="LC21"><span class="kd">function</span> <span class="nx">publish</span><span class="p">(</span><span class="nx">topic, content</span><span class="p">){</span></div>
-<div class="line" id="LC24">    <span class="nx">_</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">action</span><span class="p">){</span></div>
-<div class="line" id="LC25">        <span class="nx">action</span><span class="p">(</span><span class="nx">content</span><span class="p">,</span> <span class="nx">topic</span><span class="p">);</span></div>
-<div class="line" id="LC27">    <span class="p">})(</span><span class="nx">channels</span><span class="p">[</span><span class="nx">topic</span><span class="p">]</span> <span class="o">||</span> <span class="p">{});</span></div>
-<div class="line" id="LC30"><span class="p">}</span></div>
-</blockquote>
+
+{% highlight js%}
+function publish(topic, content){
+  _.each(function(action){
+    action(content, topic);
+  })(channels[topic] || []);
+}
+{% endhighlight%}
+
 <p>And that is in essence the components of a pubsub. Checkout my library <a href="https://github.com/CrowdHailer/belfry.js" title="Belfry.js - github" target="_blank">belfry</a> to see a full implementation. There are several embellishments, such as the ability to unsubscribe. The functionality is also curried as this allows broadcast functions for individual channels to be generated which can then be passed around. This reduces the chances of broadcasting on the wrong channel. </p>
 <p>This pattern is closely related to other approaches. <a href="http://stackoverflow.com/questions/15594905/difference-between-observer-pub-sub-and-data-binding" title="stackoverflow" target="_blank">This is a nice explanation of some of those</a>. I have also tried using events instead of callbacks after watching <a href="https://www.youtube.com/watch?v=eIovclygbwM" title="Custom events and the Observer Pattern" target="_blank">this talk on the observer pattern</a>. </p>
