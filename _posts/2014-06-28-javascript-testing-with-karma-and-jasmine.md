@@ -3,16 +3,13 @@ layout: post
 title: JavaScript testing with Karma and Jasmine
 date: '2014-06-28T09:01:12+01:00'
 tags:
-- javascript
-- js
-- node.js
-- karma.js
+- JavaScript
+- node
 - TDD
-- BDD
-- test driven development
-- phantomjs
-- bower
+- Test Driven Development
+author: Peter Saxton
 tumblr_url: http://crowdhailer.tumblr.com/post/90139965671/javascript-testing-with-karma-and-jasmine
+share-image: https://31.media.tumblr.com/42570fe7d7898e6ad26fafd182811b3d/tumblr_inline_n4sr1sTZA71s4ay8u.png
 ---
 <p>I have been using <a href="http://jasmine.github.io/" title="Jasmine: Behaviour-Driven javascript" target="_blank">Jasmine</a> running in the browser to test my JavaScript for a while now. Coming from the background of <a href="http://rspec.info/" title="rspec homepage" target="_blank">RSpec</a> the syntax is reassuringly similar. However running tests in the browser has several downsides. First there is a rather annoying html file that is required to hold the code and tests together. Second running the tests like this means opening up a browser and moving away from the terminal. This is an annoyance most of the time and completely unsuitable to work with continuous integration. The solution to both this problems is to work with a command line tool, in this case karma.</p>
 <p><img alt="image" src="https://31.media.tumblr.com/42570fe7d7898e6ad26fafd182811b3d/tumblr_inline_n4sr1sTZA71s4ay8u.png"/></p>
