@@ -7,6 +7,9 @@ tags: Ruby Design
 author: Peter Saxton
 ---
 
+Email, mobile and most existing web services have been part of the rise of the Internet anywhere.
+The Internet of Things(IoT) is different and is part of the Internet everywhere.
+
 Currently there is much talk about the coming internet of things or IoT for short.
 There are eye watering predictions that the number of connected devices might reach 50 billion by 2020
 
