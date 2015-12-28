@@ -1,16 +1,14 @@
 ---
 layout: post
-title: Curry composure
+title: Function currying and function composition
+description: Introducing two fundamental concepts from functional programming in JavaScript.
 date: '2014-06-26T09:01:00+01:00'
 tags:
-- javascript
-- underscore
-- curried
-- functional programming
-- functional
-- closure
-- lambda
+- JavaScript
+- Functional Programming
 tumblr_url: http://crowdhailer.tumblr.com/post/89944998591/curry-composure
+author: Peter Saxton
+share-image: https://31.media.tumblr.com/f1d42c8a34e922ab26cd8c7bec5310c7/tumblr_inline_n7ogzeHTFu1s4ay8u.jpg
 ---
 <p><img alt="image" src="https://31.media.tumblr.com/f1d42c8a34e922ab26cd8c7bec5310c7/tumblr_inline_n7ogzeHTFu1s4ay8u.jpg"/></p>
 
