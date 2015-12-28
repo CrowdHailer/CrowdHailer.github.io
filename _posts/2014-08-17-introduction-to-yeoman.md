@@ -1,15 +1,13 @@
 ---
 layout: post
 title: Introduction to Yeoman
+description: Scaffolding tool for web apps
 date: '2014-08-17T22:18:00+01:00'
 tags:
-- javascript
-- build tool
-- grunt.js
+- JavaScript
 - yeoman
-- bower
-- test automation
-- building automation
+- automation
+author: Peter Saxton
 tumblr_url: http://crowdhailer.tumblr.com/post/95033041928/introduction-to-yeoman
 ---
 <p><a href="http://yeoman.io/" title="The web's scaffolding tool" target="_blank">Yeoman</a> describes itself as the &lsquo;The web&rsquo;s scaffolding tool for modern webapps&rsquo;. When I first looked at yeoman, a few months ago, I very quickly dismissed it as not for me. The main reason I did is it looked liked a magical wrapper around <a href="http://gruntjs.com/" title="Grunt: The JavaScript task runner" target="_blank">Grunt</a> and <a href="http://bower.io/" title="Bower" target="_blank">Bower</a>. Calling itself a scaffolding tool I thought I would hide many of the implementation details that I thought I should be learning. I also foresaw very little benefit atop mastering grunt and bower individually, which looked like they were doing the majority of the work.</p>
