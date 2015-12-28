@@ -1,11 +1,11 @@
 ---
 layout: post
 title: JavaScript testing with Karma and Jasmine
+description: Setting up browser tests for JavaScript client applications
 date: '2014-06-28T09:01:12+01:00'
 tags:
 - JavaScript
 - node
-- TDD
 - Test Driven Development
 author: Peter Saxton
 tumblr_url: http://crowdhailer.tumblr.com/post/90139965671/javascript-testing-with-karma-and-jasmine
