@@ -241,3 +241,4 @@ This is a pain but ultimately a good thing.
 Any function that needs access to more than two external resources is probably doing too much.
 
 http://joeduffyblog.com/2015/11/10/objects-as-secure-capabilities/
+http://blog.jenkster.com/2015/12/what-is-functional-programming.html
