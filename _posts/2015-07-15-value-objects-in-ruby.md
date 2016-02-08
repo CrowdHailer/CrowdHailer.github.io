@@ -33,7 +33,7 @@ The answer is neither. Every line will, as it should, raise a `NoMethodError`. T
 
 Let us imagine the system is asking about months and seasons and we want to implement the `winter?` method. How do we do that? Well, we can reopen the String class and monkey patch in a `winter?` method. However, the question 'is it winter?' doesn't make sense to 'B-'. So this method can't be added to the String class.
 
-DDD will tell us the answer to this is as follows. Our problem domain doesn't have strings, it has months. When talking to stakeholders no one ever said 'then the user enters the string of their birthday'. It's the month of their birthday. The refinement we make is to create a Month object to encapsulate the data and behaviour of what a month means to our system. With that concept in mine, we can write the following code:
+DDD will tell us the answer to this is as follows. Our problem domain doesn't have strings, it has months. When talking to stakeholders no one ever said 'then the user enters the string of their birthday'. It's the month of their birthday. The refinement we make is to create a Month object to encapsulate the data and behaviour of what a month means to our system. With that concept in mind, we can write the following code:
 
 {% highlight ruby %}
 month = Month.new 'January'
@@ -78,9 +78,6 @@ Our users can have a history —  user2 can update their name and they will stil
 Value objects can be used in place of a Ruby primitive anywhere that your problem domain specifies extra behaviour. In recent projects I have discovered this means that almost everywhere that there is a primitive, conceptual gains can be made by changing it to a value object. If a username must have at least 3 characters, then it is not just a string. If a quantity cannot be negative, then it is not simply an integer.
 
 After creating your value objects they should be used throughout the program. This means input should be wrapped as soon as possible. They should also be cast back into strings as late as possible.
-
-> Maybe something here or casting them to strings to save in a database as late as possible
-> Or that values can be built on values.
 
 ### Building a value object
 Implementation is up to the programmer and as long as the interface is passing all of your tests, you should not care what's going on inside. Still, there are a few things to bear in mind when building your value objects:
