@@ -47,13 +47,13 @@ Cycle takes inspiration from functional technologies such as Haskell and Reactiv
 Don't be deterred by these advanced forebears.
 Only a limited number of concepts are used and they are explained when needed.
 
-Cycles design starts with a proposition, what if the user was a function.
+Cycles design starts with a proposition - what if the user was a function?
 The result is a unidirectional data flow, in common with FLux.
 However all key components are reactive instead of proactive.
 Much of Cycle is built on observables, which are leveraged from RX.js.
 
-Modeling the system as an observable to a user is certainly unusual
-To me the observable pattern is useful when the object being observed does not care about the behavior (or even existence) of any observers.
+Modelling the system as an observable to a user is certainly unusual.
+To me the observable pattern is useful when the object being observed does not care about the behaviour (or even existence) of any observers.
 This is not the case for any real system.
 The user cares quite a lot about whether the program responds or not to its actions.
 
@@ -69,7 +69,7 @@ The concept is well explained on the Cycle website, have a read through and deci
 Vue uses the Model-View-ViewModel(MVVM) pattern.
 It is a focused toolset for dealing with the View and ViewModel layer.
 A few further core components of an app are included, such as a router.
-Apart from these the core business logic is completly in the hands of the developer.
+Apart from these the core business logic is completely in the hands of the developer.
 
 Vue evolves the MVVM pattern forward in several respects.
 Complete widgets can be encapsulated in single `.vue` files
@@ -88,22 +88,22 @@ Particularly valuable when many explanations muddle all the various MV* patterns
 ### Conclusion
 
 All of these projects have ideas I have been able to use going forward.
-Perhaps the most significant for me was having one store fot the state of an app.
+Perhaps the most significant for me was having one store for the state of an app.
 In my current project the single store has just been a wrapper around the history API.
-Encoding the entire app state in the URL has given the app the some nice properties
-First is refreshing the page will not loose any information.
+Encoding the entire app state in the URL has given the app the some nice properties.
+First is refreshing the page will not lose any information.
 Second the back button neatly steps through the history of the application.
 
-So which of these three should you use.
+So which of these three should you use?
 All of them, in the correct situation.
 They all have great documentation and learning them is valuable even if you do not use them.
 
-If my next project had lots collections, I would use Vue to create coherent components.
+If my next project had lots of collections, I would use Vue to create coherent components.
 But my design would be inspired by Redux and reduce the number of stateful components.
 For a more interactive product, I would employ Cycle.
 The observable model would be very nice for handling rich input from the user.
 
-Well those are my three favourites at the moment I am sure you have others that you can suggest.
+Well those are my three favourites at the moment;I am sure you have others that you can suggest.
 
 <!-- Put as an example in the links -->
 Herinrik Jorteg created an example where the router was just a view into the state.
