@@ -14,9 +14,9 @@ author: Peter Saxton
 
 Side effect free code is predictable, and therefore easier to test and reason about than code with side effects.
 Some functional languages go to great lengths to control side effects, such as Haskell with its use of the IO Monad.
-This post shows how we get the same advantages
+This post shows how we get the same advantages.
 Capability objects provide a simple mechanism for controlling side effects in JavaScript.
-There use can improve the rationality, readability and reusability of program components.
+Their use can improve the rationality, readability and reusability of program components.
 
 ### When is a function side effect free?
 A function is isolated from side effects when:
@@ -25,7 +25,7 @@ A function is isolated from side effects when:
   2. The return value is always the same given the same arguments (*pure*).
   3. A function with both has referential transparency.
 
-It is easiest clarify these three with some examples.
+It is easiest to clarify these three with some examples.
 
 {% highlight js %}
 // Side effect free
@@ -47,7 +47,7 @@ function add(a, b){
 
 There are many ways a function can become coupled to the outside world.
 Ways include accessing global variables such as the window object, logging and throwing errors.
-Finally any function that accepts a function as an argument(i.e. callback) will become polluted if that callback is impure or has side effects.
+Finally any function that accepts a function as an argument (i.e. callback) will become polluted if that callback is impure or has side effects.
 
 A program cannot be useful without causing some side effect, it must at least display it's result.
 The goal of a capability object is to separate the logic of a function from any effects.
@@ -57,7 +57,7 @@ This separation pushes code with side effects to the edges of our program and re
 A capability object is an object on which some of its methods may be impure or have side effects.
 An effectively isolated function is one that is pure when the capability object has only pure functionality and is side effect free when the capability object is side effect free.
 
-We make our examples effectively isolated by rewritting them to take appropriate capability objects.
+We make our examples effectively isolated by rewriting them to take appropriate capability objects.
 
 {% highlight js %}
 function flip(randomiser){
@@ -77,7 +77,7 @@ function add(a, b){
 ### Ok, but why?
 
 To show  off the advantages of pure and side effect free functionality we need a more sophisticated example.
-Lets start with a naive implementation of a dispatcher.
+Let's start with a naieve implementation of a dispatcher.
 
 {% highlight js %}
 function Dispatcher(callbacks){
@@ -104,7 +104,7 @@ Meaningful errors should be the result of any callback that is not a function.
 A log is required for each action that is dispatched.
 Finally if there are no callbacks our log should be a warning as we never want a dispatched action to have no effect.
 
-The naive implementation is tightly coupled to the world outside its scope.
+The naieve implementation is tightly coupled to the world outside its scope.
 It creates side effects when throwing errors and writing log messages.
 
 To isolate the dispatcher we make the following changes.
@@ -137,9 +137,9 @@ Instead of throwing errors the dispatcher now reports errors via the logger.
 Let us examine the advantages of these changes.
 
 #### Detailed logs
-In larger systems if is helpful to add labels to logs.
-One such label might be the section of code that was logged the message.
-This can be achieved by starting the dispatcher with a logger that always adds a label to the its log messages.
+In larger systems it is helpful to add labels to logs.
+One such label might be the section of code that logged the message.
+This can be achieved by starting the dispatcher with a logger that always adds a label to its log messages.
 
 {% highlight js %}
 var logger = {
@@ -152,7 +152,7 @@ var logger = {
 
 #### Clean logs
 In production we might only be interested in messages that are a warning or an error.
-To set this up only our logger needs to know about a log level and we can just drop logs that are not important.
+To set this up only our logger needs to know about a log level and we can just dispense with logs that are not important.
 
 {% highlight js %}
 var logger = {
@@ -197,15 +197,15 @@ var logger = {
 This means that if we pass the error to a logger which then throws it we still get the correct stacktrace.*
 
 In production it is not useful to throw errors.
-The customer is unlikely interested in a stacktrace.
+The customer is unlikely to be interested in a stacktrace.
 Additionally one bad callback is no reason to not call the other callbacks.
 The best case is that one bad callback is not important and its effect may not be visible to the user.
 If errors are occurring in production we want to be notified about them and let the user carry on.
 
 Conversely in development errors should be thrown.
 As developers we want notification of broken code as soon as possible.
-The dispatcher to be aware of a choice of error handling strategy.
-Instead it can simply be passed an appropriate logger.
+The dispatcher does not need to be aware of a choice of error handling strategy.
+Instead it can simply be passed to an appropriate logger.
 
 {% highlight js %}
 // Development
@@ -228,11 +228,11 @@ var logger = {
 So far only advantages have been highlighted, but what are the costs.
 
 Passing around capability objects requires a bit more setup.
-Failing to passing in a logger can result in code failing even if all the business functionality is present.
+Failing to pass in a logger can result in code failing even if all the business functionality is present.
 An option to handle when a logger is not present is to fallback to using the global console.
-I do not do this as I think that a missing logger is something that I want to be a failure and in production missing logs is a problem I want alerting to
+I do not do this as I think that a missing logger is something that I want to be a failure and in production missing logs is a problem to which I want to be alerted.
 
-Leaving debug comments in your codebase makes is a bit larger.
+Leaving debug comments in your codebase makes it a bit larger.
 Not really a problem as the amount of code is so small.
 If it turns out to be a problem the way to remove the debug calls is with a build step.
 
