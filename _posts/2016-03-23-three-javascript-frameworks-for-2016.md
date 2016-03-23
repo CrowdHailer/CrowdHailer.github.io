@@ -2,7 +2,7 @@
 layout: post
 title: Three JavaScript frameworks for 2016
 description: Review of some interesting JS projects.
-date: 2015-11-26 16:39:05
+date: 2016-03-23 14:00:00
 tags:
 - JavaScript
 - Design
