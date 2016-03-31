@@ -46,6 +46,9 @@ Posts saved in the `_drafts` directory will not be available when using the serv
 bundle exec jekyll serve --drafts
 ```
 
+### Ideas
+What starting at the top really looks like. Goodlord diagram
+Fighting for domain modeling computer scientists not good architects.
 
 ## Development
 [seo fundamentals](http://webdesign.tutsplus.com/series/seo-fundamentals-for-web-designers--webdesign-9715)
