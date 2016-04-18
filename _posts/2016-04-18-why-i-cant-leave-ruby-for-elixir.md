@@ -2,7 +2,7 @@
 layout: post
 title: Why I can't leave Ruby for Elixir
 description: Contriving four language features by wishful thinking.
-date: 2015-11-26 16:39:05
+date: 2016-04-18 20:24:05
 tags:
 - Functional Programming
 - Immutability
@@ -64,8 +64,5 @@ A web socket server is an example of such a system.
 For a program with less strenuous requirements I would likely choose Ruby.
 
 Learning Elixir taught me many concepts.
-Fundamentally my preference for Ruby is that I can use most of these concepts in Ruby.
+Fundamentally my preference for Ruby is that I can use most of these Elixir concepts in Ruby.
 Ruby's support for functional concepts is better than working with objects in Elixir.
-
-Dave Thomas introducing Elixir
-Domain driven design the key values
