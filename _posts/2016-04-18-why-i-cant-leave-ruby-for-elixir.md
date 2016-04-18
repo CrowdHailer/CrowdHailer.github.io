@@ -2,7 +2,7 @@
 layout: post
 title: Why I can't leave Ruby for Elixir
 description: Contriving four language features by wishful thinking.
-date: 2016-04-18T20:24:05+00:00
+date: '2016-04-18T20:24:05+00:00'
 tags:
 - Functional Programming
 - Immutability
