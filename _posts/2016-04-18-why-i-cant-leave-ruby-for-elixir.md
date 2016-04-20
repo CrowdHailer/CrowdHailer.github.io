@@ -1,12 +1,12 @@
 ---
 layout: post
 title: Why I can't leave Ruby for Elixir
-description: Contriving four language features by wishful thinking.
+description: My take on Functional Programming vs Object Oriented Programming.
 date: '2016-04-18T20:24:05+01:00'
 tags:
 - Functional Programming
+- Object Oriented Programming
 - Immutability
-- Design
 author: Peter Saxton
 ---
 
