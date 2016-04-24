@@ -32,7 +32,7 @@ Elixir has some powerful concepts such as pattern matching, immutability and pip
 These concepts are common across many functional programming languages but much rarer in most object oriented languages.
 
 However as I became more familiar with these concepts I could find no good reason why they were limited to functional languages.
-In particular creating immutable objects certainly is possible and seamed to be valuable.
+In particular creating immutable objects certainly is possible and seemed to be valuable.
 
 ### Which to choose
 
