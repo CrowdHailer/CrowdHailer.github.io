@@ -54,10 +54,10 @@ So in the end it comes down to the domain to see which paradigm is more suitable
 
 Thinking in processes can be helpful, but many of these processes will involve well-defined domain objects.
 
-Browse the *Catalogue*
-View that *Item*
-Update your *Basket*
-checkout == create an *Order*
+- Browse the *Catalogue*
+- View that *Item*
+- Update your *Basket*
+- checkout == create an *Order*
 
 In my opinion neither paradigm is superior.
 And my advice is to stop trying to pick a side and enjoy learning both.
