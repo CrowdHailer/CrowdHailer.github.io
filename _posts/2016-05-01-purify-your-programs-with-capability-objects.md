@@ -1,29 +1,31 @@
 ---
 layout: post
-title: Taming side effects.
-description: Bringing predictability to JavaScript with Capability Objects
-date: 2015-12-19 16:39:05
+title: Purify your programs with capability objects
+description: Rationality, readability and reusability in JavaScript.
+date: 2016-05-01 16:39:05
 tags:
 - Functional Programming
-- Immutability
+- JavaScript
 - Design
 author: Peter Saxton
 ---
 
-**Introducing capability objects to eliminate side effects in JavaScript functions**
+**Introducing capability objects to eliminate side effects and side causes**
 
-Side effect free code is predictable, and therefore easier to test and reason about than code with side effects.
+Pure funcations are predictable, and therefore easier to test and reason about than code with side effects.
 Some functional languages go to great lengths to control side effects, such as Haskell with its use of the IO Monad.
-This post shows how we get the same advantages.
-Capability objects provide a simple mechanism for controlling side effects in JavaScript.
+
+This post shows how we can get the same advantages in JavaScript.
+(The advantages are the same for many dynamic languages and I also use this technique in Ruby.)
+Capability objects provide a simple mechanism for controlling side effects and side causes.
 Their use can improve the rationality, readability and reusability of program components.
 
-### When is a function side effect free?
-A function is isolated from side effects when:
+### When is a function Pure?
+A function is pure when isolated from side effects and side causes:
 
   1. The only effect of it's execution is the return value (*side effect free*).
-  2. The return value is always the same given the same arguments (*pure*).
-  3. A function with both has referential transparency.
+  2. The return value is always the same given the same arguments (*side cause free*).
+  3. A function with both has referential transparency(*pure*).
 
 It is easiest to clarify these three with some examples.
 
@@ -33,13 +35,13 @@ function flip(){
   return Math.random() >= 0.5 ? "heads" : "tails";
 }
 
-// Pure
+// Side cause free
 function addAndLog(a, b){
   console.log("adding", a, b);
   return a + b;
 }
 
-// Referentially transparent
+// Pure
 function add(a, b){
   return a + b;
 }
@@ -47,15 +49,19 @@ function add(a, b){
 
 There are many ways a function can become coupled to the outside world.
 Ways include accessing global variables such as the window object, logging and throwing errors.
-Finally any function that accepts a function as an argument (i.e. callback) will become polluted if that callback is impure or has side effects.
+Finally any function that accepts a function as an argument (i.e. callback) will become polluted if that callback is impure.
 
 A program cannot be useful without causing some side effect, it must at least display it's result.
-The goal of a capability object is to separate the logic of a function from any effects.
-This separation pushes code with side effects to the edges of our program and renders the core effectively isolated.
+The goal of a capability object is to separate the business logic and interaction with the outside world.
+This separation pushes impure code to the edges of our program leaving the logic pure.
+This purity makes validating code that performs important logic easier.
 
 ### Capability Objects and effectively isolated functions.
 A capability object is an object on which some of its methods may be impure or have side effects.
-An effectively isolated function is one that is pure when the capability object has only pure functionality and is side effect free when the capability object is side effect free.
+An effectively isolated function is one that is pure when the capability object has only pure functionality.
+
+The calling code then chooses to provide explicit access for a function to the outside world by controlling the capabilities that are passed in.
+If it helps this can be considered as dependency injection of all impure capabilities.
 
 We make our examples effectively isolated by rewriting them to take appropriate capability objects.
 
@@ -69,6 +75,7 @@ function addAndLog(a, b, logger){
   return a + b;
 }
 
+// Already pure
 function add(a, b){
   return a + b;
 }
@@ -77,7 +84,7 @@ function add(a, b){
 ### Ok, but why?
 
 To show  off the advantages of pure and side effect free functionality we need a more sophisticated example.
-Let's start with a naieve implementation of a dispatcher.
+Let's start with a naieve implementation of a dispatcher. *Dispatchers are a key part of the [flux architecture](https://facebook.github.io/flux/docs/overview.html)*
 
 {% highlight js %}
 function Dispatcher(callbacks){
@@ -240,5 +247,7 @@ If a function causes many different side effects then it will require several ca
 This is a pain but ultimately a good thing.
 Any function that needs access to more than two external resources is probably doing too much.
 
-http://joeduffyblog.com/2015/11/10/objects-as-secure-capabilities/
-http://blog.jenkster.com/2015/12/what-is-functional-programming.html
+### Resources
+
+- [What is Functional Programming](http://blog.jenkster.com/2015/12/what-is-functional-programming.html)
+- [Objects as Secure Capabilities](http://joeduffyblog.com/2015/11/10/objects-as-secure-capabilities/)
