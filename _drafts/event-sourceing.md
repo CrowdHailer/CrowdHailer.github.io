@@ -47,3 +47,18 @@ https://github.com/DevLyon/mixter
 Lagom example https://github.com/dotta/activator-lagom-scala-chirper
 
 Build a wage reporter similar to the goodlord referencing system. Applicant updates income history, reports are built from requirements
+
+persistent actor game of life
+
+erlang otp 
+```erlang
+handle_command(command, _from, state) ->
+  {:ack, [event1, event2]},
+handle_command(command, _from, state) ->
+  {:error, [violation1, violation2]}.
+  
+apply_event(event, state) ->
+  {:ok, new_state, timeout},
+apply_event(event, state) ->
+  {:error, reason}.
+```
