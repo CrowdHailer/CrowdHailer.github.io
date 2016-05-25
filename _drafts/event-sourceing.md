@@ -43,3 +43,5 @@ http://www.slideshare.net/jbsen/mvc-evolved
 
 mixter example several languages
 https://github.com/DevLyon/mixter
+
+Lagom example https://github.com/dotta/activator-lagom-scala-chirper
