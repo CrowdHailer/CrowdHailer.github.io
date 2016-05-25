@@ -45,3 +45,5 @@ mixter example several languages
 https://github.com/DevLyon/mixter
 
 Lagom example https://github.com/dotta/activator-lagom-scala-chirper
+
+Build a wage reporter similar to the goodlord referencing system. Applicant updates income history, reports are built from requirements
