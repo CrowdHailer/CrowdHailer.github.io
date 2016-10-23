@@ -19,6 +19,10 @@ This post is to extend a throwaway comment I made on [Twitter](https://twitter.c
 Obviously several people disagreed and a tweet was never going to be enough to explain my reasoning.
 So here goes...
 
+### Update
+I recently implemented the ideas that are discussed here.
+Check out [OK](https://github.com/CrowdHailer/OK) to jump straight to the results.
+
 ### Some background
 
 - *Tuple:* A data structure consisting of multiple parts.
@@ -165,6 +169,8 @@ If you are able to try it out do let me know how it goes.
 ### Resources
 Finally a few excellent resources on monads if you want to read further but I stress that a full understanding is not necessary to enjoy the benefits.
 
+- [OK](https://github.com/CrowdHailer/OK)
+  Elegant error handling in elixir pipelines.
 - [Refactoring Ruby with Monads](https://www.youtube.com/watch?v=J1jYlPtkrqQ)  
   Whistle-stop tour of monads with [Tom Stuart](https://twitter.com/tomstuart). His `Optional` is the analogue of the Result monad.
 - [Monads in Pictures](http://adit.io/posts/2013-04-17-functors,_applicatives,_and_monads_in_pictures.html)  
